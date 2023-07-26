@@ -9,11 +9,14 @@
     </tr>
   </thead>
   <tbody>
+  <% @extract.each do |item| %>
+    
     <tr>
-      <td>Exemplo</td>
-      <td>R$ 100</td>
-      <td>Despesa</td>
+      <td><%= item.tipo %></td>
+      <td>$ <%= item.value %></td>
+      <td><%= item.status %></td>
       <td></td>
     </tr>
+  <% end %>
   </tbody>
 </table>

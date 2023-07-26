@@ -15,7 +15,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_26_184548) do
   enable_extension "plpgsql"
 
   create_table "cashes", force: :cascade do |t|
-    t.string "type", limit: 255
+    t.string "tipo", limit: 255
     t.float "value"
     t.integer "status"
     t.datetime "created_at", null: false
