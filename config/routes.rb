@@ -9,4 +9,8 @@ Rails.application.routes.draw do
   get "delete/:id", to: "home#delete"
   get "add", to: "home#add"
   post "add", to: "home#register"
+
+  get "api/cashes", to: "api#index"
+  delete "api/cashes/:id", to: "api#delete"
+  post "api/cashes", to: "api#register"
 end
