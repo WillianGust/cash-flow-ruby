@@ -1,22 +1,29 @@
-
-<table class="table table-bordered table-striped table-hover">
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Value</th>
-      <th>Status</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @extract.each do |item| %>
-    
-    <tr>
-      <td><%= item.tipo %></td>
-      <td><%= item.status == Cash::DEBT ? "- ": "" %>$ <%= number_with_precision(item.value, precision: 2, separator: ',', delimiter: '.') %></td>
-      <td><%= item.status == Cash::DEBT ? "DEBT" : "CREDIT" %></td>
-      <td></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+<div class="table-responsive">
+  <table class="table table-bordered table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Value</th>
+        <th>Status</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @extract.each do |item| %>
+      
+      <tr>
+        <td><%= item.tipo %></td>
+        <td><%= item.status == Cash::DEBT ? "- ": "" %>$ <%= number_with_precision(item.value, precision: 2, separator: ',', delimiter: '.') %></td>
+          <% if item.status == Cash::DEBT%>
+            <td style="background-color: #f4262669"> Debt </td>
+          <% else %>
+            <td style="background-color: #00c3ff52"> Credit </td>
+          <% end %>
+        <td style="width:20px ">
+          <a href="/delete/<%= item.id %>" class="btn btn-outline-danger" onclick="return confirm('Confirm?')" >Delete</a>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

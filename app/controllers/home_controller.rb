@@ -18,4 +18,9 @@ class HomeController < ApplicationController
     end
     @total_value = @revenues - @expenses
   end
+
+  def delete
+    Cash.delete(params[:id])
+    redirect_to "/"
+  end
 end
