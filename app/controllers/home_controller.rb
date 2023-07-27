@@ -23,4 +23,13 @@ class HomeController < ApplicationController
     Cash.delete(params[:id])
     redirect_to "/"
   end
+
+  # Only to show form
+  def add
+  end
+
+  def register
+    Cash.create(tipo: params[:tipo], value: params[:value], status: params[:status])
+    redirect_to "/"
+  end
 end

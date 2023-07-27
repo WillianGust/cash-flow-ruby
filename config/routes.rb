@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   root 'home#index'
   
   get "delete/:id", to: "home#delete"
+  get "add", to: "home#add"
+  post "add", to: "home#register"
 end
