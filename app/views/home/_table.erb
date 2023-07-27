@@ -13,8 +13,8 @@
     
     <tr>
       <td><%= item.tipo %></td>
-      <td>$ <%= item.value %></td>
-      <td><%= item.status %></td>
+      <td><%= item.status == Cash::DEBT ? "- ": "" %>$ <%= number_with_precision(item.value, precision: 2, separator: ',', delimiter: '.') %></td>
+      <td><%= item.status == Cash::DEBT ? "DEBT" : "CREDIT" %></td>
       <td></td>
     </tr>
   <% end %>

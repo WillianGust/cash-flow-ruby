@@ -19,7 +19,7 @@
   height: 140px!important;
 }
 .divBox:nth-child(3){
-  background-color: rgb(253, 21, 21)!important;
+  background-color: rgba(254, 33, 33, 0.3)!important;
 }
 
 .btnAdd{
