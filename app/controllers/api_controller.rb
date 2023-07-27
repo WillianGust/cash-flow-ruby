@@ -1,5 +1,6 @@
 class ApiController < ApplicationController
   skip_before_action :verify_authenticity_token
+  before_action :set_cors_headers
 
   def index
     extract = Cash.all
@@ -41,5 +42,14 @@ class ApiController < ApplicationController
   def register
     cash = Cash.create(tipo: params[:tipo], value: params[:value], status: params[:status])
     render json: cash.to_json, status: 201
+  end
+
+  private
+
+  def set_cors_headers
+    headers['Access-Control-Allow-Origin'] = '*'
+    headers['Access-Control-Allow-Methods'] = 'POST, GET, PUT, DELETE, OPTIONS'
+    headers['Access-Control-Allow-Headers'] = 'Origin, Content-Type, Accept, Authorization, Token'
+    headers['Access-Control-Max-Age'] = '1728000'
   end
 end
