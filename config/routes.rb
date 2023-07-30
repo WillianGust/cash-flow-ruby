@@ -12,5 +12,6 @@ Rails.application.routes.draw do
 
   get "api/cashes", to: "api#index"
   delete "api/cashes/:id", to: "api#delete"
+  match "api/cashes/:id", to: "api#options", via: :options
   post "api/cashes", to: "api#register"
 end

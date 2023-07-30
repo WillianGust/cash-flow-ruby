@@ -44,6 +44,10 @@ class ApiController < ApplicationController
     render json: cash.to_json, status: 201
   end
 
+  def options
+    render json: {}, status: 204
+  end
+
   private
 
   def set_cors_headers
